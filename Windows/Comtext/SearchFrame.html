@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        border-radius: 30px 30px 0 0;
+        height: max-content;
+        margin: 0;
+        padding: 0;
+      }
+      #UrlBar{
+        width: max-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px 10px 0 0;
+      }
+        #SearchArea {
+        width: 600px;
+        margin: 0;
+        padding: 0;
+        height: 50px;
+      }
+      #UrlBar button {
+        background: #00ffe7;
+        border: none;
+        color: black;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      hr{
+        color: rgba(80,80,80,0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="UrlBar" class="">
+      <input type="text" placeholder="Search the web..." id="SearchArea" />
+      <button type="submit">Search</button>
+    </div>
+    <hr>
+    <ul class="" id="" style="background-color: black;"></ul>
+    <script>
+      var SearchArea = document.getElementById("SearchArea");
+      SearchArea.addEventListener("click", (e) => {});
+    </script>
+  </body>
+</html>

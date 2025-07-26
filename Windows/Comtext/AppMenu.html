@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="../sysMedia/Icons/Extension.png" alt=""> -->
+    <script>
+        var items = {
+            "New Tab": {
+                icon: "../sysMedia/icons/New_Tab.png",
+                fn: () => {},
+            },
+            // "New Window": {
+                // icon: "../sysMedia/icons",
+                // fn: () => {},
+            // },
+            Print: {
+                icon: "../sysMedia/icons/Print.png",
+                fn: () => {},
+            },
+            Bookmarks: {
+                icon: "../sysMedia/iconsC/Star.png",
+                fn: () => {},
+            },
+            History: {
+                icon: "../sysMedia/icons/History.png",
+                fn: () => {},
+            },
+            Downloads: {
+                icon: "../sysMedia/icons/Downloads.png",
+                fn: () => {},
+            },
+            Extensions: {
+                icon: "../sysMedia/icons/Extension.png",
+                fn: () => {},
+            }
+        }
+        var body = document.body
+        Object.keys(items).forEach(i => {
+            var a = document.createElement('div');
+            var b = document.createElement('img');
+            var c = document.createElement('div');
+            var d = document.createElement('img');
+            b.src = items[i].icon
+            c.textContent = i
+            d.src = "../sysMedia/icons/Forward.png"
+            a.style.display = 'flex'
+            a.style.alignItems = 'center'
+            a.style.justifyContent = 'center'
+            a.style.gap = '10px'
+            a.style.padding = '5px 0'
+            b.style.width = '20px' 
+            d.style.width = '10px'
+            b.style.height = '20px'
+            d.style.height = '10px'
+            c.style.width = '90%'
+            c.style.fontSize = '12px'
+            a.appendChild(b)
+            a.appendChild(c)
+            a.appendChild(d)
+            body.appendChild(a)
+            body.style.width = '400px'
+            body.style.minHeight = '400px'
+            body.style.padding = '10px'
+            body.style.height = 'max-content'
+            // body.style.border = '1px solid black'
+            body.style.borderRadius = '10px'
+            body.style.boxShadow = '1px 1px 10px 3px rgba(0,0,0,0.2)'
+        })
+    </script>
+</body>
+</html>

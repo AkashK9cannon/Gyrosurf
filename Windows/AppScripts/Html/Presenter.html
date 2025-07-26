@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gyrosurf Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0," />
+
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --glow: #00ffe7;
+      --text: #ffffff;
+      --glass: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?cs=srgb&dl=pexels-jplenio-1103970.jpg&fm=jpg');
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .title {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    .title img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .search-bar {
+      width: 90vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #UrlBar{
+        border-radius: 30px;
+        padding: 10px 20px;
+        background: white;
+        width: 50vw;
+        box-shadow: 0 0 10px rgba(0, 255, 231, 0.2);
+    }
+    .search-bar #UrlBar input {
+      border: none;
+      background: transparent;
+      flex: 1;
+      font-size: 1.1rem;
+      color: var(--bg);
+      outline: none;
+      width: 87%;
+    }
+    .search-bar #UrlBar input::placeholder {
+      color: var(--bg);
+    }
+
+    .search-bar #UrlBar button {
+      background: var(--glow);
+      border: none;
+      color: black;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .quick-links a {
+      text-decoration: none;
+      background: var(--glass);
+      padding: 10px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      /* border: 1px solid #00ffe766; */
+      transition: 0.3s ease;
+    }
+
+    .quick-links a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .quick-links img {
+      width: 30px;
+      height: 30px;
+    }
+
+    #NewSection {
+      margin-top: 40px;
+      width: 90vw;
+      height: 600px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 255, 231, 0.2);
+    }
+    .open {
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+    }
+    .close{
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  </style>
+</head>
+<body>
+  <form class="search-bar" onsubmit="search(event)">
+    <div id="" class="">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSElEQVR4nO2WW0sbQRTH/U5j1VoVfDZCU2jBr+XlJV6bFtsgefBdXxXjk4K3F8VLEO1DdzeVZKPrlN8ksxl3J2suSEQ8MDDMOed/dv/nMtMnMo7sxep7DywyjhxYcOS3tZKc/OVZaerPODKd89Rib7PBFwywWqJ6Kl+SF24gtWxf3svx726oT6168uD2IdSz50zrscVHy7kTKEyRFJivwzAq68d+aLNbbIBqKRTvQ/36iR/Tg/lhPiEw1Njkb/lR6cdWXBk8xvWcjS7XWMHWJl/XSs0DkxebXHmB0g8tONJvsBwKZ+iwKXpxxpAJIx3WHJv50TJTKIf6/FGcyvxhIxWzhXJMv3XZSEXTwBQHOYUyvn56p/wkP8NLrvyxV5G3d4Fa2b2KOtN6bPlQfMEAyyzO1ztAxlbcMG+29WnJVauZHl8wWg6cWvVUy1Cb1aCWP5NKaNs8q8qHQKrF3qQSW+oAXzDAMvvcGpj8mMNBCznVNgSKysZpNdT/3K/E9GD2JwX+krO305+7Wh9DLX9p6+OROivY2iSdS2gnlDa5+RckBuZs+JnAn3977VOdNak+fQGqRb24mL3Qx0SyFReBdHGxjxXXoa98wQArOrWebafBLtppsN12Er0aIOOMzBNfOvWRyeyNjkzySBGx2EdHJj74ggFWSyOz20tirpNLYrLJtcjX6zHIRIoKZx8XaxjXJfu1mEq6Fnv2EBjo8Omzc9Xl00fUH3tm8K0OHnv4tPXYE0ZlQo3tVmn1eYsvGNE/Fa+uj8VbD/wfyvHtnVrpKJsAAAAASUVORK5CYII=" alt="circled-menu">
+    </div>
+    <div id="UrlBar" class="">
+        <input type="text" placeholder="Search the web..." id="searchInput">
+        <button type="submit">Search</button>
+    </div>
+    <div id="" class="">
+      <div id="" class="">
+        <img width="30" height="30" src="https://img.icons8.com/color/30/marker--v1.png" alt="marker--v1"/>
+        Mumbai
+      </div>
+      <div id="" class=""></div>
+    </div>
+  </form>
+  
+  <div class="close" id="HistoryLinks"></div>
+  <div class="quick-links" id="QuickLinks">
+    <!-- Dynamic Quick Links will be injected here -->
+  </div>
+
+  <!-- <iframe src="https://www.news18.com/" id="NewSection"></iframe> -->
+
+  <script>
+
+    const QuickLinks = document.getElementById('QuickLinks');
+    const searchInput = document.getElementById('searchInput')
+    const HistoryLinks = document.getElementById('HistoryLinks')
+    HistoryLinks.style.width = '50vw'
+    HistoryLinks.style.height = '50vh'
+    // HistoryLinks.style.background = 'black'
+    // HistoryLinks.style.display = 'none'
+    searchInput.addEventListener('click', (e) => {
+      if(HistoryLinks.classList.contains('close')){
+        HistoryLinks.classList.remove('close');
+        HistoryLinks.classList.add('open')
+      }else if(HistoryLinks.classList.contains('open')){
+        HistoryLinks.classList.remove('open');
+        HistoryLinks.classList.add('close')
+      }
+      // window.GyroSearch.OpenSearchWindow()
+      
+      console.log('Clicked')
+    })
+
+    function CreateLink() {
+      const List = {
+        ChatGPT: {
+          Link: "https://www.chatgpt.com",
+          Image: "https://img.icons8.com/fluency/48/chatgpt--v2.png"
+        },
+        YouTube: {
+          Link: "https://www.youtube.com",
+          Image: "https://img.icons8.com/color/48/youtube-play.png"
+        },
+        Gmail: {
+          Link: "https://www.gmail.com",
+          Image: "https://img.icons8.com/color/48/gmail-new.png"
+        },
+        GitHub: {
+          Link: "https://www.github.com",
+          Image: "https://img.icons8.com/ios-filled/50/00ffe7/github.png"
+        }
+      };
+
+      let Links = "";
+      for (let key in List) {
+        Links += `
+          <a href="${List[key].Link}" target="_blank" title="${key}">
+            <img src="${List[key].Image}" alt="${key}" />
+          </a>`;
+      }
+      QuickLinks.innerHTML = Links;
+    }
+
+    CreateLink();
+  </script>
+</body>
+</html>

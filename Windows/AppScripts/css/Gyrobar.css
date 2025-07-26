@@ -1,0 +1,133 @@
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  height: 65px;
+}
+#TopTools {
+  width: 100vw;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  /* border: 1px solid rgba(80,80,80, 0.2); */
+}
+#Tabs {
+  display: flex;
+  align-items: center;
+  /* background: rgba(255, 255, 255, 0.9); */
+}
+.Tabs {
+  height: 30px;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+#TabsContainer {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: rgba(80, 80, 80, 0.2);
+}
+/* #TabWindow{
+  background: rgba(255,255,255,0.9);
+}
+.TabWindow {
+  background: rgba(255,255,255,0.9);
+  cursor: pointer;
+} */
+
+.TabWindow.Tab-active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.TabWindow.Tab-inactive {
+  z-index: 1;
+}
+.Tab-Close{
+  width: 15px;
+  height: 15px;
+}
+.Tab-Close:hover{
+  background: rgba(80, 80, 80, 0.3);
+}
+
+#PowerTools{
+    /* border: 1px solid black; */
+    width: max-content;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: end;
+    background: rgba(80,80,80,0.2);
+}
+#PowerTools img{
+  width: 15px;
+  height: 15px;
+}
+#AppCloseBtn:hover, .Tab-Close:hover {
+    background: rgba(255,8,8,1);  
+}
+
+#BottomTools {
+  width: 100vw;
+  height: 30px;
+  display: flex;
+  padding: 1px;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 1px solid rgba(80,80,80, 0.2); */
+}
+#UrlBar {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid rgba(80, 80, 80, 0.2);
+  border-radius: 30px;
+  height: 27px;
+}
+#UrlBar input {
+  width: 95%;
+  height: 24px;
+  border: none;
+  outline: none;
+}
+img {
+  padding: 3px;
+  height: 21px;
+  width: 21px;
+  background: transparent;
+}
+img:hover {
+  background: rgba(80, 80, 80, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.show {
+  background: rgba(255, 255, 255, 0.9);
+}
+.hide {
+  background: rgba(80, 80, 80, 0.7);
+}
+.Reload{
+  animation: rotate 1s linear;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
